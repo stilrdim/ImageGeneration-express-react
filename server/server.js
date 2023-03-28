@@ -8,6 +8,7 @@ const cors = require('cors');
 // Allow sending json between client and server
 app.use(bodyParser.json())
 
+// Enable cross origin requests
 app.use(cors());
 
 const PORT = process.env.PORT || 5000
