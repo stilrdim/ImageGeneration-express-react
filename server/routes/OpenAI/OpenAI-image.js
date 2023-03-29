@@ -20,6 +20,7 @@ async function createImage(req, res) {
       size: "1024x1024",
     })
     .then((res) => {
+      // Grabs first image
       return res.data.data[0].url;
     });
   res.send(response);
@@ -33,6 +34,7 @@ async function createImageFromParams(req, res) {
       size: "1024x1024",
     })
     .then((res) => {
+      // Grabs first image
       return res.data.data[0].url;
     });
   res.json({ data: response });
