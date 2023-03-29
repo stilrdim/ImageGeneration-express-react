@@ -2,13 +2,11 @@ const express = require('express');
 const { Configuration, OpenAIApi } = require('openai');
 const router = express.Router();
 
-const ORG = process.env.ORGANIZATION;
-const API_KEY = process.env.API_KEY;
 
 // OpenAI API setup
 const configuration = new Configuration({
-  organization: ORG,
-  apiKey: API_KEY,
+  organization: process.env.ORGANIZATION,
+  apiKey: process.env.API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
