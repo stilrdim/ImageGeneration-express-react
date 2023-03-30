@@ -20,7 +20,7 @@ async function createImage(req, res) {
     .then((res) => {
       // Grabs first image
       return res.data.data[0].url;
-    });
+    }).catch((error) => console.error('An error has occured', error));
   res.send(response);
 }
 
@@ -34,7 +34,7 @@ async function createImageFromParams(req, res) {
     .then((res) => {
       // Grabs first image
       return res.data.data[0].url;
-    });
+    }).catch((error) => console.error('An error has occured', error));
   res.json({ data: response });
 }
 
