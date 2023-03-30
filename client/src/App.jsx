@@ -1,4 +1,4 @@
-import ChatGPT from "./ChatGPT";
+import ChatGPT from "./Components/ChatGPT";
 
 function App() {
   return (
