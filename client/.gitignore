@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Personal testing files (Learning Redux)
+/src/Redux
+/src/Components/Counter.jsx
+/src/Components/CounterHeading.jsx
