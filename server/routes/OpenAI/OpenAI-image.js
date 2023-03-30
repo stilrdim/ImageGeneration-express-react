@@ -40,10 +40,16 @@ async function createImageFromParams(req, res) {
 
 router.post('/', (req, res) => {
   createImage(req, res)
+
+  // IR/B = Image Requested / Body
+  console.log(`[IR/B] ${req.body.prompt}`)
 })
 
 router.get('/:prompt', (req, res) => {
   createImageFromParams(req, res)
+
+  // IR/P = Image Requested / Params
+  console.log(`[IR/P] ${req.params.prompt}`)
 })
 
 
