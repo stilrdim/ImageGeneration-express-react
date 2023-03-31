@@ -61,6 +61,7 @@ const ChatGPT = () => {
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         tabIndex={0}
+        placeholder="A cute baby otter..."
       />
       <button type="submit" onClick={handleClick}>
         Submit
