@@ -131,10 +131,9 @@ h1 {
   margin: 0;
 }
 
-#count {
+h3#count {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 900;
-  line-height: 1;
   font-size: 4rem;
   margin: 0 auto;
   background: -webkit-linear-gradient(180deg, #feace4, #6a00ff);
@@ -145,7 +144,10 @@ h1 {
   max-width: 4ch;
 }
 
-#count-down,
-#count-up {
+button#count-down,
+button#count-up {
   width: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1.6;
 }

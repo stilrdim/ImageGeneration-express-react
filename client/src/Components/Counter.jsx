@@ -19,7 +19,7 @@ export default function Counter({ amount, setAmount } = props) {
   }
 
   return (
-    <div>
+    <div className="pb-3" id="counter">
       <h3 id="count" data-toggle="tooltip" title="Amount of images">
         {amount}
       </h3>
