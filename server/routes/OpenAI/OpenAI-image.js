@@ -14,12 +14,12 @@ async function createImage(req, res) {
   const response = await openai
     .createImage({
       prompt: req.body.prompt,
-      n: 1,
+      n: req.body.amount,
       size: "1024x1024",
     })
     .then((res) => {
       // Grabs first image
-      return res.data.data[0].url;
+      return res.data.data;
     }).catch((error) => console.error('An error has occured', error));
   res.send(response);
 }
@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
   createImage(req, res)
 
   // IR/B = Image Requested / Body
-  console.log(`[IR/B] ${req.body.prompt}`)
+  console.log(`[IR/B/${req.body.amount}] ${req.body.prompt}`)
 })
 
 router.get('/:prompt', (req, res) => {

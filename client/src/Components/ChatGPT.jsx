@@ -1,11 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
+import Counter from "./Counter";
 
 const ChatGPT = () => {
   const [prompt, setPrompt] = useState("");
   const [answer, setAnswer] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showInfoLabel, setShowInfoLabel] = useState(false);
+
+  // For our Child component (Counter)
+  // Should be replaced by Redux in the future
+  const [amount, setAmount] = useState(1);
 
   // Using this to test out data sent from the API in an HTML Paragraph
   const [backendData, setBackendData] = useState([{}]);
@@ -15,6 +20,7 @@ const ChatGPT = () => {
     await axios
       .post("/api/OpenAI/GenerateImage", {
         prompt: prompt,
+        amount: amount,
       })
       .then((response) => {
         setAnswer(response.data);
@@ -48,6 +54,7 @@ const ChatGPT = () => {
   return (
     <div id="chatgpt">
       {answer == null ? <h1>DALL-E Image Generator</h1> : null}
+      <Counter amount={amount} setAmount={setAmount} />
       <input
         type="text"
         style={{ fontSize: "1.5rem", width: "650px" }}
@@ -66,7 +73,16 @@ const ChatGPT = () => {
 
       {/* The actual image (only when requested) */}
       {answer != null && (
-        <img src={answer} width="750" height="750" alt="Image placeholder" />
+        <div className="row">
+          {answer.map((img, index) => (
+            <img
+              src={img.url}
+              key={index}
+              className={`img-fluid col-${12 / amount}`}
+              alt="Image placeholder"
+            />
+          ))}
+        </div>
       )}
 
       {/* Don't render element if we haven't received any backend data in the Test variable */}

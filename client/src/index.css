@@ -114,3 +114,38 @@ p#label {
 h2 {
   text-align: center;
 }
+
+img {
+  max-width: 750px;
+  max-height: 750px;
+}
+
+h1 {
+  background: -webkit-linear-gradient(180deg, #2af598, #08b3e5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Fixes gradient for leters like "g" */
+  line-height: 1.4;
+  max-width: 25ch;
+  margin: 0;
+}
+
+#count {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  line-height: 1;
+  font-size: 4rem;
+  margin: 0 auto;
+  background: -webkit-linear-gradient(180deg, #feace4, #6a00ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Focus the gradient more */
+  max-width: 4ch;
+}
+
+#count-down,
+#count-up {
+  width: 2.5rem;
+}
