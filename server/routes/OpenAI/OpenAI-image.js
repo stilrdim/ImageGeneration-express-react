@@ -18,7 +18,7 @@ async function createImage(req, res) {
       size: "1024x1024",
     })
     .then((res) => {
-      // Grabs first image
+      // Grabs all received images
       return res.data.data;
     }).catch((error) => console.error('An error has occured', error));
   res.send(response);
