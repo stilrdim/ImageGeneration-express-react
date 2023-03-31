@@ -25,5 +25,5 @@ dist-ssr
 
 # Personal testing files (Learning Redux)
 /src/Redux
-/src/Components/Counter.jsx
+/src/Components/CounterTest.jsx
 /src/Components/CounterHeading.jsx
