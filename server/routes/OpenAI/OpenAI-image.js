@@ -28,12 +28,12 @@ async function createImageFromParams(req, res) {
   const response = await openai
     .createImage({
       prompt: req.params.prompt,
-      n: 1,
+      n: req.params.amount,
       size: "1024x1024",
     })
     .then((res) => {
-      // Grabs first image
-      return res.data.data[0].url;
+      // Grabs all received images
+      return res.data.data;
     }).catch((error) => console.error('An error has occured', error));
   res.json({ data: response });
 }
@@ -45,11 +45,11 @@ router.post('/', (req, res) => {
   console.log(`[IR/B/${req.body.amount}] ${req.body.prompt}`)
 })
 
-router.get('/:prompt', (req, res) => {
+router.get('/:prompt/:amount', (req, res) => {
   createImageFromParams(req, res)
 
   // IR/P = Image Requested / Params
-  console.log(`[IR/P] ${req.params.prompt}`)
+  console.log(`[IR/P/${req.params.amount}] ${req.params.prompt}`)
 })
 
 
